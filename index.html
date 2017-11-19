@@ -1,17 +1,53 @@
+<!DOCTYPE html>
 <html>
 
 	<head>
-		<script type="text/javascript" src="nodebits.js"></script>
+		<title>nodebits</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- UIkit CSS -->
+		<link rel="stylesheet" href="src/css/uikit.min.css" />
+
+		<!-- UIkit JS -->
+		<script src="src/js/uikit.min.js"></script>
+		<script src="src/js/uikit-icons.min.js"></script>
+
+		<!-- nodebits -->
+		<script type="text/javascript" src="src/js/nodebits.js"></script>
 	</head>
 
 	<body>
-		<h1>nodebits</h1>
-		<h2>donate to Bitcoin nodes that are helping the network.</h2>
+		<div class="uk-container uk-margin-top">
+			<div uk-grid>
+			    <div>
+
+			    	<h1 class="uk-heading-line"><span>nodebits</span></h1>
+
+					<h2>donate to Bitcoin nodes that are helping the network.</h2>
+			    </div>
+
+			    
+			</div>
+
+			<div uk-grid>
+			    <div>
+					<ul id="nodeList">
+
+					</ul>
+				</div>
+
+			    
+			</div>
+		</div>
+
+		
 
 
-		<ul id="nodeList">
+		
 
-		</ul>
+
+		
 	</body>
 
 </html>
