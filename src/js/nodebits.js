@@ -1,3 +1,9 @@
+window.onload=function(){
+	nodeSelectedListener();
+}
+
+var nodesWithAddress = [];
+var regexBitcoinAddress = new RegExp("[13][a-km-zA-HJ-NP-Z1-9]{25,34}");
 
 var request = new XMLHttpRequest();
 request.open('GET', 'https://bitnodes.earn.com/api/v1/snapshots/latest/', true);
@@ -19,18 +25,53 @@ request.onerror = function() {
 request.send();
 
 
-function organizeNodes(data){
-	// console.log(data.nodes)
-	let regexBitcoinAddress = new RegExp("[13][a-km-zA-HJ-NP-Z1-9]{25,34}");
 
+function organizeNodes(data){
+	// If selected node have a bitcoin address pattern in uacomment we save it
 	for (var node in data.nodes) {
 		if (regexBitcoinAddress.test(data.nodes[node][1])) {
-		    var nodeLi = document.createElement("LI");
-        	var nodeDetail = data.nodes[node][1];
-        	var textnode = document.createTextNode(nodeDetail.match(regexBitcoinAddress));
-        	nodeLi.appendChild(textnode);
-			document.getElementById("nodeList").appendChild(nodeLi);
+			
+			nodesWithAddress.push(data.nodes[node]);
 		}
-
 	}
+
+	// We print all nodes with a bitcoin address attached to it
+	for (n=0; n<nodesWithAddress.length; n++){
+		var nodeLi = document.createElement("LI");
+		nodeLi.id = n;
+
+		var nodeDetail = nodesWithAddress[n][1];
+		var textnode = document.createTextNode(nodeDetail.match(regexBitcoinAddress));
+		nodeLi.appendChild(textnode);
+		document.getElementById('nodeList').appendChild(nodeLi);
+	}
+	
 }
+
+
+
+function nodeSelectedListener(){
+	// Function to detect selected node
+	var nodeList = document.getElementById('nodeList');
+
+	function whatClicked(evt) {
+        showQR(evt.target.id);
+	}
+	nodeList.addEventListener("click", whatClicked, false);
+	
+}
+
+
+
+function showQR(selectedNodeNumber){
+	var qrElement = document.getElementById("qrcode");
+
+	if(qrElement.lastChild){
+		qrElement.replaceChild(showQRCode(nodesWithAddress[selectedNodeNumber][1].match(regexBitcoinAddress)[0]), qrElement.lastChild);
+	} else {
+		qrElement.appendChild(showQRCode(nodesWithAddress[selectedNodeNumber][1].match(regexBitcoinAddress)[0]));
+	}
+
+}
+
+

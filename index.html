@@ -10,8 +10,12 @@
 		<link rel="stylesheet" href="src/css/uikit.min.css" />
 
 		<!-- UIkit JS -->
-		<script src="src/js/uikit.min.js"></script>
-		<script src="src/js/uikit-icons.min.js"></script>
+		<script type="text/javascript" src="src/js/uikit.min.js"></script>
+		<script type="text/javascript" src="src/js/uikit-icons.min.js"></script>
+
+		<!-- QRCode -->
+		<script type="text/javascript" src="src/js/qrcode.js"></script>
+		<script type="text/javascript" src="src/js/html5-qrcode.js"></script>
 
 		<!-- nodebits -->
 		<script type="text/javascript" src="src/js/nodebits.js"></script>
@@ -21,33 +25,21 @@
 		<div class="uk-container uk-margin-top">
 			<div uk-grid>
 			    <div>
-
 			    	<h1 class="uk-heading-line"><span>nodebits</span></h1>
-
 					<h2>donate to Bitcoin nodes that are helping the network.</h2>
 			    </div>
-
-			    
 			</div>
-
 			<div uk-grid>
 			    <div>
 					<ul id="nodeList">
 
 					</ul>
 				</div>
-
-			    
+				<div>
+					<div id="qrcode"></div>
+				</div>  
 			</div>
-		</div>
-
-		
-
-
-		
-
-
-		
+		</div>	
 	</body>
 
 </html>
