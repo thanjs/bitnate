@@ -30,7 +30,6 @@ function organizeNodes(data){
 	// If selected node have a bitcoin address pattern in uacomment we save it
 	for (var node in data.nodes) {
 		if (regexBitcoinAddress.test(data.nodes[node][1])) {
-			
 			nodesWithAddress.push(data.nodes[node]);
 		}
 	}
@@ -55,7 +54,8 @@ function nodeSelectedListener(){
 	var nodeList = document.getElementById('nodeList');
 
 	function whatClicked(evt) {
-        showQR(evt.target.id);
+		// If selected element is a li inside 'nodeList' UL, we generate QR sending selected node number
+		if (evt.target.tagName == 'LI') showQR(evt.target.id);
 	}
 	nodeList.addEventListener("click", whatClicked, false);
 	

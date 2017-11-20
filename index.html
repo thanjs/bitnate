@@ -2,36 +2,40 @@
 <html>
 
 	<head>
-		<title>nodebits</title>
+		<title>bitnate</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- UIkit CSS -->
 		<link rel="stylesheet" href="src/css/uikit.min.css" />
 
+		<!-- bitnate CSS -->
+		<link rel="stylesheet" href="src/css/style.css" />
+
 		<!-- UIkit JS -->
 		<script type="text/javascript" src="src/js/uikit.min.js"></script>
 		<script type="text/javascript" src="src/js/uikit-icons.min.js"></script>
 
-		<!-- QRCode -->
+		<!-- QRCode JS -->
 		<script type="text/javascript" src="src/js/qrcode.js"></script>
 		<script type="text/javascript" src="src/js/html5-qrcode.js"></script>
 
-		<!-- nodebits -->
-		<script type="text/javascript" src="src/js/nodebits.js"></script>
+		<!-- bitnate JS -->
+		<script type="text/javascript" src="src/js/bitnate.js"></script>
 	</head>
 
 	<body>
-		<div class="uk-container uk-margin-top">
+		<div class="uk-container uk-margin-top uk-margin-bottom">
 			<div uk-grid>
 			    <div>
-			    	<h1 class="uk-heading-line"><span>nodebits</span></h1>
-					<h2>donate to Bitcoin nodes that are helping the network.</h2>
+			    	<h1 class="uk-heading-line"><span>bitnate</span></h1>
+					<h2>donate to Bitcoin nodes that are helping the network</h2>
+					<p>press on an address to show QR.</p>
 			    </div>
 			</div>
 			<div uk-grid>
 			    <div>
-					<ul id="nodeList">
+					<ul id="nodeList" class="uk-list uk-list-bullet">
 
 					</ul>
 				</div>
